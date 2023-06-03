@@ -1,0 +1,65 @@
+第一篇基础命令篇
+shutdown  一分钟之后关闭电脑（不带任何参数）
+shutdown 选项 时间  shutdown   关机/重新启动
+-r  重新启动
+-c 取消关闭
+常用命令实例
+shutdown -r now  立刻重启
+shutdown now      立刻关机
+shutdown 20:25    20：25关机
+shutdown +10  系统再过十分钟后关机
+
+查看或配置网卡信息  
+ifconfig   
+ping         
+本地回环用于测试网卡是否正常
+ifconfig | grep inet   
+提示： 一台计算机中可能会有一个物理网卡和多个虚拟网卡，在Linux中物理网卡的名字通常以ensXX表示。
+      127.0.0.1 被称为本低回环/环回地址，一般用来测试本机网卡是否正常
+远程登陆和复制文件
+ssh
+在linux中SSh是非常常用的工具，通过SSH客户端我们可以连接到运行了SSh服务器的远程主机上
+数据传输时加密的，可以防止信息泄露
+数据传输是压缩的，可以提高传输速度
+scp
+就是secure copy,在Linux下用来远程拷贝文件的命令
+它的格式与ssh基本相同，需要注意的是在指定端口时用的时-P而不是小写的
+scp -P port 01.py user@remoteesktop/01.py //如果后面不是绝对路径，则用户的家目录作为参考路径
+scp -r demo user@remoteesktop   //-r可以传送文件
+scp 这个终端命令只能在Linux或者UNIX系统下使用
+如果在Windows中，可以安装PuTTY,使用pscp命令行工具或则安装FileZilla使用FTP进行文件传输
+
+域名是ip地址的别名
+域名：例如www.baidu.com
+端口号：通过端口号可以找到计算机上运行的应用程序
+     SSH服务器的默认端口号是22，如果是默认端口号，在连接的时候可以省略
+01 ssh服务器，22
+02 Web服务器 80
+03 HTTPS  443
+04 FTP服务器，21
+
+ssh客户端的简单使用
+ssh -p port  user@remoteIP
+Windows 下SSH客户端的安装
+Putty   http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+XShell  http://xshellcn.com
+
+service iptables stop
+ls -l 以列表的形式显示
+
+用户 组用户 其他用户
+权限， 第一个字符如果如果是d表示目录
+硬链接，通俗的讲，就是有多少种方式，可以访问到当前目录/文件
+            对于文件来说  硬链接数只有一个
+            但对于文件夹来说，最少有两个，与当前文件夹下的子目录有关
+拥有则，家目录下 文件/目录 的拥有着通常都是当前用户
+组，在Linux中，很多时候，会出现组名和用户名相同的情况，后面会讲。
+大小
+时间
+名称
+
+chmod +/- rwx 文件夹|目录
+chmod -rw 01.py
+在终端命令中如果需要争对这个目录而执行终端命令，我们则需要给这个目录可执行权限。
+可读权限  显示目录的内容
+可写权限  修改目录的内容
