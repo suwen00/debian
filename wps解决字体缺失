@@ -1,0 +1,17 @@
+一、下载缺失字体
+https://pan.baidu.com/s/1AhdMyXPbYsEnP0PYlLbVtQ#list/path=%2F  密码：g9ci
+2.添加字体
+方法一：解压到wps的默认字体文件夹中（wps-office），然后重启wps
+sudo unzip wps_symbol_fonts.zip -d /usr/share/fonts/wps-office
+tips：如果/user/share/fonts目录下没有wps-office文件夹，则使用方法二。
+二、将字体库文件解压
+sudo unzip wps_symbol_fonts.zip		# 解压zip文件
+更新字体
+# 生成字体索引
+sudo mkfontscale
+sudo mkfontdir
+# 更新字体缓存
+sudo fc-cache
+重新打开wps
+三、图形化操作
+下载zip文件，解压后手动安装
